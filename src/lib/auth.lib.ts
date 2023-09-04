@@ -1,4 +1,5 @@
-import { NextAuthOptions } from "next-auth";
+import { SessionUser } from "@typedefs/app.types";
+import { NextAuthOptions, getServerSession } from "next-auth";
 import GithubProvider from "next-auth/providers/github";
 
 export const authOptions: NextAuthOptions = {
@@ -10,4 +11,11 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_APP_CLIENT_SECRET as string,
     }),
   ],
+};
+
+export const getLoggedUser = async (): Promise<SessionUser | null> => {
+  const session = await getServerSession(authOptions);
+  if (!session || !session.user) return null;
+
+  return session.user;
 };
