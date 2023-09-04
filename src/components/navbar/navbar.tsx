@@ -8,7 +8,7 @@ const Navbar = async () => {
   const user = await getLoggedUser();
 
   return (
-    <div className="border-b flex justify-between items-center mx-4 py-4">
+    <div className="border-b flex justify-between items-center py-4">
       <span className="font-extrabold text-3xl">Achievera</span>
 
       <nav className="flex gap-4 items-center"></nav>
