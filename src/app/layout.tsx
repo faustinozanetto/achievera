@@ -83,9 +83,9 @@ export default async function RootLayout({
     <html lang="en" className={interFont.variable} suppressHydrationWarning>
       <body className="bg-background font-sans antialiased scroll-smooth">
         <Providers>
-          <main className="flex flex-col container max-w-5xl">
+          <main className="flex flex-col min-h-screen container max-w-5xl">
             <Navbar />
-            {children}
+            <div className="flex-1 my-4">{children}</div>
           </main>
         </Providers>
       </body>
