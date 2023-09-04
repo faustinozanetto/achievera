@@ -11,7 +11,6 @@ export default function SignInPage() {
           Join Achievera to start tracking and celebrating your daily
           achievements.
         </p>
-
         <Separator />
         <AuthSignInOptions />
       </div>

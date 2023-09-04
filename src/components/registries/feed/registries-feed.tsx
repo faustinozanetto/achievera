@@ -14,6 +14,9 @@ const RegistriesFeed: React.FC = () => {
     fetcher
   );
 
+  /**
+   * This useMemo hook combines and groups registry data by date.
+   */
   const combinedRegistries = useMemo(() => {
     if (!data || !data.registries) return [];
 
@@ -49,6 +52,18 @@ const RegistriesFeed: React.FC = () => {
               <RegistriesFeedEntryPlaceholder key={`placeholder-${index}`} />
             );
           })}
+        {!isLoading && combinedRegistries.length === 0 && (
+          <div className="bg-background-alternate p-4 shadow-lg rounded-lg border">
+            <p className="text-sm sm:text-base">
+              Seems{" "}
+              <span className="font-bold text-primary">
+                you haven't created
+              </span>{" "}
+              any goals or achievements yet. Start now to track your progress
+              with Achievera!
+            </p>
+          </div>
+        )}
         {combinedRegistries.map((registry, index) => {
           return (
             <RegistriesFeedEntry

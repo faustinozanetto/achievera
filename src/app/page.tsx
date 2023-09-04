@@ -8,7 +8,6 @@ export default async function HomePage() {
       <div className="bg-background-alternate p-4 shadow-lg rounded-lg border">
         <h1 className="text-2xl font-bold">👋 Welcome Back!</h1>
       </div>
-
       <RegistriesCreate />
       <RegistriesFeed />
     </div>
