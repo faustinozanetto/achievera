@@ -9,7 +9,7 @@ const Navbar = async () => {
 
   return (
     <div className="border-b flex justify-between items-center py-4">
-      <span className="font-extrabold text-3xl text-primary">Achievera</span>
+      <span className="font-black text-3xl text-primary">Achievera</span>
 
       <nav className="flex gap-4 items-center"></nav>
 

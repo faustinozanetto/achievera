@@ -16,6 +16,7 @@ import {
 } from "@components/ui/forms/form";
 import Button from "@components/ui/buttons/button";
 import { Input } from "@components/ui/input/input";
+import { LoadingIcon } from "@components/ui/icons/loading-icon";
 
 export type RegistriesCreateFormData = z.infer<
   typeof registriesCreateValidationSchema
@@ -29,6 +30,7 @@ const RegistriesCreateForm: React.FC<RegistriesCreateFormProps> = (props) => {
   const { onSubmit } = props;
 
   const form = useForm<RegistriesCreateFormData>({
+    // @ts-ignore
     resolver: zodResolver(registriesCreateValidationSchema),
     defaultValues: {
       content: "",
@@ -54,13 +56,14 @@ const RegistriesCreateForm: React.FC<RegistriesCreateFormProps> = (props) => {
                 />
               </FormControl>
               <FormDescription>
-                E.g., 'Complete a 30-minute workout' or 'Finish reading a book.
+                E.g., 'Complete a 30-minute workout 🏋️‍♀️'
               </FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button className="sm:ml-auto" type="submit">
+          {form.formState.isSubmitting && <LoadingIcon className="mr-2" />}
           Submit
         </Button>
       </form>

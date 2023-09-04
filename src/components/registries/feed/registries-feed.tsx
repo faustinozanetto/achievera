@@ -9,7 +9,7 @@ import RegistriesFeedEntryPlaceholder from "./registries-feed-entry-placeholder"
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const RegistriesFeed: React.FC = () => {
-  const { data, error, isLoading } = useSWR<{ registries: SafeRegistry[] }>(
+  const { data, isLoading } = useSWR<{ registries: SafeRegistry[] }>(
     "/api/registries",
     fetcher
   );
@@ -36,7 +36,7 @@ const RegistriesFeed: React.FC = () => {
     <div className="flex flex-col  gap-4">
       <div className="bg-background-alternate p-4 shadow-lg rounded-lg border">
         <h2 className="font-semibold text-lg">🌟 Daily Achievements & Goals</h2>
-        <p className="mb-2">
+        <p className="mb-2 text-sm sm:text-base">
           See your progress, one day at a time. Explore your daily achievements
           and goals here. 🚀
         </p>

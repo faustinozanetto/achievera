@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Providers from "./providers";
 import Navbar from "@components/navbar/navbar";
+import { ToastsContainer } from "@components/ui/toasts/components/toasts-container";
 
 const interFont = Inter({
   variable: "--font-sans",
@@ -84,7 +85,9 @@ export default async function RootLayout({
       <body className="bg-background font-sans subpixel-antialiased scroll-smooth">
         <Providers>
           <main className="flex flex-col min-h-screen container max-w-5xl">
+            {/* @ts-ignore */}
             <Navbar />
+            <ToastsContainer />
             <div className="flex-1 my-4">{children}</div>
           </main>
         </Providers>

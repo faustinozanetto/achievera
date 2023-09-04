@@ -2,6 +2,7 @@
 
 import React from "react";
 import { ThemeProvider } from "next-theme-kit";
+import { ToastsProvider } from "@state/toasts/toasts-context";
 
 type ProvidersProps = {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ const Providers: React.FC<ProvidersProps> = (props) => {
 
   return (
     <ThemeProvider useLocalStorage useSystem={false}>
-      {children}
+      <ToastsProvider>{children}</ToastsProvider>
     </ThemeProvider>
   );
 };
