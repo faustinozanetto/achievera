@@ -46,3 +46,8 @@ yarn-error.log*
 
 .vscode
 .contentlayer
+# Sentry Auth Token
+.sentryclirc
+
+# Sentry Auth Token
+.sentryclirc

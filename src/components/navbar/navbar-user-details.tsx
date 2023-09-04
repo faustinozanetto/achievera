@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   DropdownMenu,
@@ -14,6 +16,7 @@ import {
   AvatarImage,
 } from "@components/ui/avatar/avatar";
 import { LogoutIcon } from "@components/ui/icons/logout-icon";
+import { signOut } from "next-auth/react";
 
 type NavbarUserDetailsProps = {
   user: SessionUser;
@@ -21,6 +24,10 @@ type NavbarUserDetailsProps = {
 
 const NavbarUserDetails: React.FC<NavbarUserDetailsProps> = (props) => {
   const { user } = props;
+
+  const handleLogout = async () => {
+    await signOut();
+  };
 
   return (
     <DropdownMenu>
@@ -33,7 +40,7 @@ const NavbarUserDetails: React.FC<NavbarUserDetailsProps> = (props) => {
       <DropdownMenuContent>
         <DropdownMenuLabel>{user.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={handleLogout}>
           <LogoutIcon className="mr-2" />
           <span>Logout</span>
         </DropdownMenuItem>
