@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: `${siteConfig.url}/assets/images/banner.webp`,
+        url: `${siteConfig.url}/assets/achievera-banner.webp`,
         width: 2000,
         height: 1500,
       },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: `${siteConfig.url}/assets/images/banner.webp`,
+        url: `${siteConfig.url}/assets/achievera-banner.webp`,
         width: 2000,
         height: 1500,
       },
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   icons: {
-    shortcut: "assets/images/favicons/favicon.ico",
+    shortcut: "favicon.ico",
   },
 };
 

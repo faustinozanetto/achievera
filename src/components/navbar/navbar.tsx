@@ -3,13 +3,16 @@ import ThemeToggler from "@components/theme/theme-toggler";
 import { getLoggedUser } from "@lib/auth.lib";
 import NavbarUserDetails from "./navbar-user-details";
 import NavbarSignIn from "./navbar-sign-in";
+import Link from "next/link";
 
 const Navbar = async () => {
   const user = await getLoggedUser();
 
   return (
     <div className="border-b flex justify-between items-center py-4">
-      <span className="font-black text-3xl text-primary">Achievera</span>
+      <Link className="font-black text-3xl text-primary" href="/">
+        Achievera
+      </Link>
 
       <nav className="flex gap-4 items-center"></nav>
 
