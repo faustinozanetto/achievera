@@ -5,7 +5,7 @@ import Link from "next/link";
 const NavbarSignIn: React.FC = () => {
   return (
     <Button asChild variant="outline">
-      <Link href="/signin">Sign In</Link>
+      <Link href="/sign-in">Sign In</Link>
     </Button>
   );
 };
