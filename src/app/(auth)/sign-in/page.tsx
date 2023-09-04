@@ -8,7 +8,7 @@ export default function SignInPage() {
       <div className="flex flex-col bg-background-alternate rounded-lg shadow-lg border p-4 gap-2 text-start max-w-lg">
         <h1 className="text-3xl font-bold">Sign In</h1>
         <p className="leading-7">
-          Join Achievera or sign in to start tracking and celebrating your daily
+          Join Achievera to start tracking and celebrating your daily
           achievements.
         </p>
 

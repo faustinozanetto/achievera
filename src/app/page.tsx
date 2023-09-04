@@ -1,6 +1,6 @@
+import React from "react";
 import RegistriesCreate from "@components/registries/create/registries-create";
 import RegistriesFeed from "@components/registries/feed/registries-feed";
-import React from "react";
 
 export default async function HomePage() {
   return (
