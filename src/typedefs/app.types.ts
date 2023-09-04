@@ -1,4 +1,11 @@
-import { DefaultSession } from "next-auth";
+import { DailyRegistry } from "@prisma/client";
 
-export type SessionUser = NonNullable<DefaultSession["user"]>;
+export type SessionUser = {
+  name: string;
+  email: string;
+  image: string;
+};
+
 export type AuthOption = "github";
+
+export type SafeRegistry = Pick<DailyRegistry, "content" | "createdAt">;

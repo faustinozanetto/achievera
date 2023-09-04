@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { useTheme } from "next-theme-kit";
 import Button from "@components/ui/buttons/button";
+import { useTheme } from "next-theme-kit";
 
 const ThemeToggler: React.FC = () => {
   const { theme, setTheme } = useTheme();

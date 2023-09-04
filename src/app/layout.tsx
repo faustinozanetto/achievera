@@ -10,8 +10,8 @@ import Navbar from "@components/navbar/navbar";
 const interFont = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
   display: "swap",
+  fallback: ["system-ui"],
 });
 
 export const metadata: Metadata = {

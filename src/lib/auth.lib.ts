@@ -8,7 +8,9 @@ import { prisma } from "./database.lib";
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   adapter: PrismaAdapter(prisma),
-
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     GithubProvider({
       clientId: process.env.GITHUB_APP_CLIENT_ID as string,
@@ -19,7 +21,18 @@ export const authOptions: NextAuthOptions = {
 
 export const getLoggedUser = async (): Promise<SessionUser | null> => {
   const session = await getServerSession(authOptions);
-  if (!session || !session.user) return null;
+  if (
+    !session ||
+    !session.user ||
+    !session.user.name ||
+    !session.user.image ||
+    !session.user.email
+  )
+    return null;
 
-  return session.user;
+  return {
+    name: session.user.name,
+    email: session.user.email,
+    image: session.user.image,
+  };
 };
