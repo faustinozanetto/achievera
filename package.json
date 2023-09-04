@@ -1,0 +1,76 @@
+{
+  "name": "achievera",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Achievera is your daily companion for success. Take a moment each day to reflect on your accomplishments, both big and small. With Achievera, you can easily record and celebrate your wins, no matter how significant or minor they may seem.",
+  "repository": {
+    "url": "https://github.com/faustinozanetto/achievera",
+    "type": "git"
+  },
+  "keywords": [
+    "achievements",
+    "accomplishments",
+    "progresstracking",
+    "productivity",
+    "motivation"
+  ],
+  "author": {
+    "name": "Faustino Zanetto",
+    "email": "zanettofaustino@gmail.com"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "eslint": "next lint --fix --dir src",
+    "prettier": "prettier -l \"src/**/*.{js,jsx,md,ts,tsx}\"",
+    "lint": "yarn prettier && yarn eslint"
+  },
+  "lint-staged": {
+    "extends": "./lint-staged.config.ts"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "class-variance-authority": "0.7.0",
+    "clsx": "^2.0.0",
+    "next": "^13.4.1",
+    "next-theme-kit": "0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "1.14.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
+    "@next/eslint-plugin-next": "^13.1.6",
+    "@types/node": "^18.11.10",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-next": "^13.1.6",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-tailwindcss": "^3.8.3",
+    "eslint-plugin-typescript-sort-keys": "2.3.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.0",
+    "postcss": "^8.4.21",
+    "prettier": "^3.0.0",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^5.0.0"
+  }
+}
