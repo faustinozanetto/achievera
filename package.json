@@ -25,6 +25,7 @@
     "eslint": "next lint --fix --dir src",
     "prettier": "prettier -l \"src/**/*.{js,jsx,md,ts,tsx}\"",
     "lint": "yarn prettier && yarn eslint",
+    "postinstall": "prisma generate",
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:create": "prisma migrate dev --create-only",
     "db:migrate:dev": "prisma migrate dev",
