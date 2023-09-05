@@ -44,6 +44,7 @@ const RegistriesFeed: React.FC = () => {
           Array.from({ length: 2 }).map((_m, index) => {
             return <RegistriesFeedEntryPlaceholder key={`placeholder-${index}`} />;
           })}
+
         {!isLoading && combinedRegistries.length === 0 && (
           <div className="bg-background-alternate p-4 shadow-lg rounded-lg border">
             <p className="text-sm sm:text-base">
@@ -52,6 +53,7 @@ const RegistriesFeed: React.FC = () => {
             </p>
           </div>
         )}
+
         {combinedRegistries.map((registry, index) => {
           return <RegistriesFeedEntry key={`registry-${index}`} date={registry[0]} content={registry[1]} />;
         })}
