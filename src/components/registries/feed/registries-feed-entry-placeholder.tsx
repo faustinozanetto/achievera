@@ -1,5 +1,5 @@
-import React from "react";
-import { Skeleton } from "@components/ui/skeleton/skeleton";
+import React from 'react';
+import { Skeleton } from '@components/ui/skeleton/skeleton';
 
 const RegistriesFeedEntryPlaceholder: React.FC = () => {
   return (
@@ -8,7 +8,7 @@ const RegistriesFeedEntryPlaceholder: React.FC = () => {
 
       <ul className="flex flex-col gap-1 list-decimal list-inside">
         {Array.from({ length: 3 }).map((_, index) => {
-          return <Skeleton key={index} className="h-6 w-full" />;
+          return <Skeleton key={`placeholder-${index}`} className="h-6 w-full" />;
         })}
       </ul>
     </div>

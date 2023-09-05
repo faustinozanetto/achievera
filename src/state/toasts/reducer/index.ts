@@ -1,13 +1,6 @@
-import {
-  ToastState,
-  ToastActions,
-  ToastActionType,
-} from "@typedefs/toasts.types";
+import { ToastState, ToastActions, ToastActionType } from '@typedefs/toasts.types';
 
-export const reducer = (
-  state: ToastState,
-  action: ToastActions
-): ToastState => {
+export const reducer = (state: ToastState, action: ToastActions): ToastState => {
   switch (action.type) {
     case ToastActionType.ADD_TOAST: {
       return {
@@ -16,9 +9,7 @@ export const reducer = (
       };
     }
     case ToastActionType.REMOVE_TOAST: {
-      const updatedToasts = state.toasts.filter(
-        (toast) => toast.id !== action.payload.toast
-      );
+      const updatedToasts = state.toasts.filter((toast) => toast.id !== action.payload.toast);
       return {
         ...state,
         toasts: updatedToasts,
@@ -30,6 +21,6 @@ export const reducer = (
       };
     }
     default:
-      throw new Error("The action you requested does not exists!");
+      throw new Error('The action you requested does not exists!');
   }
 };

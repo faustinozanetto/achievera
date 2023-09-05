@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React from "react";
-import { ThemeProvider } from "next-theme-kit";
-import { ToastsProvider } from "@state/toasts/toasts-context";
+import React from 'react';
+import { ThemeProvider } from 'next-theme-kit';
+import { ToastsProvider } from '@state/toasts/toasts-context';
 
 type ProvidersProps = {
   children: React.ReactNode;

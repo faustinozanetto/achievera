@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, { createContext, useMemo, useReducer } from "react";
+import React, { createContext, useMemo, useReducer } from 'react';
 
-import { reducer } from "./reducer";
-import { ToastContextState } from "@typedefs/toasts.types";
+import { ToastContextState } from '@typedefs/toasts.types';
+import { reducer } from './reducer';
 
 const initialState: ToastContextState = {
   state: { toasts: [] },
@@ -24,9 +24,5 @@ export const ToastsProvider: React.FC<ToastsProviderProps> = (props) => {
 
   const memoizedValue = useMemo(() => ({ state, dispatch }), [state]);
 
-  return (
-    <ToastContext.Provider value={memoizedValue}>
-      {children}
-    </ToastContext.Provider>
-  );
+  return <ToastContext.Provider value={memoizedValue}>{children}</ToastContext.Provider>;
 };

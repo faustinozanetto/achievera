@@ -1,23 +1,18 @@
-"use client";
+'use client';
 
-import React from "react";
-import Button from "@components/ui/buttons/button";
-import { useTheme } from "next-theme-kit";
+import React from 'react';
+import Button from '@components/ui/buttons/button';
+import { useTheme } from 'next-theme-kit';
 
 const ThemeToggler: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
   const handleThemeChange = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
   return (
-    <Button
-      aria-label="Toggle Theme"
-      className="h-10 w-10 px-2"
-      variant="ghost"
-      onClick={handleThemeChange}
-    >
+    <Button aria-label="Toggle Theme" className="h-10 w-10 px-2" variant="ghost" onClick={handleThemeChange}>
       {/* Sun Icon */}
       <svg
         className="h-6 w-6 rotate-0 scale-100 stroke-current transition-all dark:scale-0"

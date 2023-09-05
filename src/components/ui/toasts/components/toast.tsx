@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import { cva } from "class-variance-authority";
-import { Toast as ToastData, ToastVariant } from "@typedefs/toasts.types";
-import { cn } from "@lib/common.lib";
-import { DangerIcon } from "@components/ui/icons/danger-icon";
-import { InfoIcon } from "@components/ui/icons/info-icon";
-import { SuccessIcon } from "@components/ui/icons/success-icon";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { cva } from 'class-variance-authority';
+import { Toast as ToastData, ToastVariant } from '@typedefs/toasts.types';
+import { cn } from '@lib/common.lib';
+import { DangerIcon } from '@components/ui/icons/danger-icon';
+import { InfoIcon } from '@components/ui/icons/info-icon';
+import { SuccessIcon } from '@components/ui/icons/success-icon';
 
 export const toastVariants = cva(
-  "flex items-center overflow-hidden rounded-md p-4 text-neutral-900 shadow-md dark:text-neutral-50 text-sm",
+  'flex items-center overflow-hidden rounded-md p-4 text-neutral-900 shadow-md dark:text-neutral-50 text-sm',
   {
     variants: {
       variant: {
-        info: "bg-blue-300 dark:bg-blue-700",
-        success: "bg-green-300 dark:bg-green-700",
-        danger: "bg-red-300 dark:bg-red-700",
+        info: 'bg-blue-300 dark:bg-blue-700',
+        success: 'bg-green-300 dark:bg-green-700',
+        danger: 'bg-red-300 dark:bg-red-700',
       },
     },
     defaultVariants: {
-      variant: "success",
+      variant: 'success',
     },
   }
 );
@@ -42,17 +42,17 @@ export const Toast: React.FC<ToastProps> = (props) => {
     <motion.li
       initial={{ height: 0, opacity: 0 }}
       animate={{
-        height: "auto",
+        height: 'auto',
         opacity: 1,
         transition: {
-          type: "spring",
+          type: 'spring',
           bounce: 0.3,
         },
       }}
       exit={{ height: 0, opacity: 0 }}
       transition={{
         duration: 0.6,
-        type: "spring",
+        type: 'spring',
         bounce: 0,
       }}
       className="m-2 flex flex-col items-center"

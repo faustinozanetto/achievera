@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import React from "react";
-import { registriesCreateValidationSchema } from "@lib/validations.lib";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
+import React from 'react';
+import { registriesCreateValidationSchema } from '@lib/validations.lib';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import {
   Form,
   FormControl,
@@ -13,14 +13,12 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@components/ui/forms/form";
-import Button from "@components/ui/buttons/button";
-import { Input } from "@components/ui/input/input";
-import { LoadingIcon } from "@components/ui/icons/loading-icon";
+} from '@components/ui/forms/form';
+import Button from '@components/ui/buttons/button';
+import { Input } from '@components/ui/input/input';
+import { LoadingIcon } from '@components/ui/icons/loading-icon';
 
-export type RegistriesCreateFormData = z.infer<
-  typeof registriesCreateValidationSchema
->;
+export type RegistriesCreateFormData = z.infer<typeof registriesCreateValidationSchema>;
 
 type RegistriesCreateFormProps = {
   onSubmit: (data: RegistriesCreateFormData) => void;
@@ -33,16 +31,13 @@ const RegistriesCreateForm: React.FC<RegistriesCreateFormProps> = (props) => {
     // @ts-ignore
     resolver: zodResolver(registriesCreateValidationSchema),
     defaultValues: {
-      content: "",
+      content: '',
     },
   });
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="flex gap-4 flex-col"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-4 flex-col">
         <FormField
           control={form.control}
           name="content"
@@ -50,14 +45,9 @@ const RegistriesCreateForm: React.FC<RegistriesCreateFormProps> = (props) => {
             <FormItem>
               <FormLabel>Achievement Or Goal</FormLabel>
               <FormControl>
-                <Input
-                  placeholder="Enter your goal or achievement here..."
-                  {...field}
-                />
+                <Input placeholder="Enter your goal or achievement here..." {...field} />
               </FormControl>
-              <FormDescription>
-                E.g., 'Complete a 30-minute workout 🏋️‍♀️'
-              </FormDescription>
+              <FormDescription>E.g., &apos;Complete a 30-minute workout 🏋️‍♀️&apos;</FormDescription>
               <FormMessage />
             </FormItem>
           )}

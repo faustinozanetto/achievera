@@ -1,18 +1,18 @@
-import "../styles/global.css";
+import '../styles/global.css';
 
-import React from "react";
-import { siteConfig } from "@config/config";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import Providers from "./providers";
-import Navbar from "@components/navbar/navbar";
-import { ToastsContainer } from "@components/ui/toasts/components/toasts-container";
+import React from 'react';
+import { siteConfig } from '@config/config';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import Navbar from '@components/navbar/navbar';
+import { ToastsContainer } from '@components/ui/toasts/components/toasts-container';
+import Providers from './providers';
 
 const interFont = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-  fallback: ["system-ui"],
+  variable: '--font-sans',
+  subsets: ['latin'],
+  display: 'swap',
+  fallback: ['system-ui'],
 });
 
 export const metadata: Metadata = {
@@ -24,11 +24,11 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [
     {
-      name: "Faustino Zanetto",
-      url: "https://www.faustinozanetto.com",
+      name: 'Faustino Zanetto',
+      url: 'https://www.faustinozanetto.com',
     },
   ],
-  creator: "Faustino Zanetto",
+  creator: 'Faustino Zanetto',
   metadataBase: new URL(siteConfig.url),
   openGraph: {
     title: siteConfig.name,
@@ -42,12 +42,12 @@ export const metadata: Metadata = {
         height: 1500,
       },
     ],
-    locale: "en-US",
-    type: "website",
+    locale: 'en-US',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    creator: "@faustinozanetto",
+    card: 'summary_large_image',
+    creator: '@faustinozanetto',
     title: siteConfig.name,
     description: siteConfig.description,
     images: [
@@ -64,22 +64,18 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   manifest: `${siteConfig.url}/site.webmanifest`,
   icons: {
-    shortcut: "favicon.ico",
+    shortcut: 'favicon.ico',
   },
 };
 
-export default async function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={interFont.variable} suppressHydrationWarning>
       <body className="bg-background font-sans subpixel-antialiased scroll-smooth">

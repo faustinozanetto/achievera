@@ -1,9 +1,9 @@
-import React from "react";
-import ThemeToggler from "@components/theme/theme-toggler";
-import { getLoggedUser } from "@lib/auth.lib";
-import NavbarUserDetails from "./navbar-user-details";
-import NavbarSignIn from "./navbar-sign-in";
-import Link from "next/link";
+import React from 'react';
+import ThemeToggler from '@components/theme/theme-toggler';
+import { getLoggedUser } from '@lib/auth.lib';
+import Link from 'next/link';
+import NavbarUserDetails from './navbar-user-details';
+import NavbarSignIn from './navbar-sign-in';
 
 const Navbar = async () => {
   const user = await getLoggedUser();
@@ -13,8 +13,6 @@ const Navbar = async () => {
       <Link className="font-black text-3xl text-primary" href="/">
         Achievera
       </Link>
-
-      <nav className="flex gap-4 items-center"></nav>
 
       <div className="flex gap-4 items-center">
         {user ? <NavbarUserDetails user={user} /> : <NavbarSignIn />}

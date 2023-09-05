@@ -1,20 +1,17 @@
-import { authOptions } from "@lib/auth.lib";
-import { prisma } from "@lib/database.lib";
-import { registriesCreateValidationSchema } from "@lib/validations.lib";
-import {
-  CreateRegistryApiResponse,
-  GetRegistriesApiResponse,
-} from "@typedefs/api.types";
-import { SafeRegistry } from "@typedefs/app.types";
-import { getServerSession } from "next-auth";
-import { NextResponse } from "next/server";
+import { authOptions } from '@lib/auth.lib';
+import { prisma } from '@lib/database.lib';
+import { registriesCreateValidationSchema } from '@lib/validations.lib';
+import { CreateRegistryApiResponse, GetRegistriesApiResponse } from '@typedefs/api.types';
+import { SafeRegistry } from '@typedefs/app.types';
+import { getServerSession } from 'next-auth';
+import { NextResponse } from 'next/server';
 
 export const GET = async () => {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
     const data: CreateRegistryApiResponse = {
-      error: "Unauthorized",
+      error: 'Unauthorized',
       success: false,
     };
 
@@ -25,15 +22,16 @@ export const GET = async () => {
     where: { email: session.user.email! },
     select: {
       registries: {
-        orderBy: { createdAt: "desc" },
+        orderBy: { createdAt: 'desc' },
       },
     },
   })) ?? { registries: [] };
 
   // Map registries so that we only return content and date.
-  const mappedRegistries: SafeRegistry[] = registries.registries.map(
-    (registry) => ({ content: registry.content, createdAt: registry.createdAt })
-  );
+  const mappedRegistries: SafeRegistry[] = registries.registries.map((registry) => ({
+    content: registry.content,
+    createdAt: registry.createdAt,
+  }));
 
   const data: GetRegistriesApiResponse = {
     registries: mappedRegistries,
@@ -49,7 +47,7 @@ export const POST = async (request: Request) => {
 
   if (!session || !session.user) {
     const data: CreateRegistryApiResponse = {
-      error: "Unauthorized",
+      error: 'Unauthorized',
       success: false,
     };
 
@@ -58,10 +56,8 @@ export const POST = async (request: Request) => {
 
   const response = registriesCreateValidationSchema.safeParse(res);
   if (!response.success) {
-    const { errors } = response.error;
-
     const data: CreateRegistryApiResponse = {
-      error: "Invalid request!",
+      error: 'Invalid request!',
       success: false,
     };
     return NextResponse.json(data, { status: 400 });

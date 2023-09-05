@@ -1,4 +1,4 @@
-import { DailyRegistry } from "@prisma/client";
+import { DailyRegistry } from '@prisma/client';
 
 export type ActionMap<M extends { [index: string]: unknown }> = {
   [Key in keyof M]: M[Key] extends undefined
@@ -12,11 +12,11 @@ export type ActionMap<M extends { [index: string]: unknown }> = {
 };
 
 export type SessionUser = {
-  name: string;
   email: string;
   image: string;
+  name: string;
 };
 
-export type AuthOption = "github";
+export type AuthOption = 'github';
 
-export type SafeRegistry = Pick<DailyRegistry, "content" | "createdAt">;
+export type SafeRegistry = Pick<DailyRegistry, 'content' | 'createdAt'>;

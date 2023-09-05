@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Toast, ToastActionType } from "@typedefs/toasts.types";
-import { useToastContext } from "./use-toast-context";
+import { Toast, ToastActionType } from '@typedefs/toasts.types';
+import { useToastContext } from './use-toast-context';
 
 /**
  * Hook that returns a function to create toasts.
@@ -10,7 +10,7 @@ import { useToastContext } from "./use-toast-context";
 export const useToast = () => {
   const { dispatch } = useToastContext();
 
-  const toast = (toast: Omit<Toast, "id">, duration: number = 3000) => {
+  const toast = (toast: Omit<Toast, 'id'>, duration: number = 3000) => {
     const toastId = Math.random().toString(12).substring(2, 10);
 
     dispatch({

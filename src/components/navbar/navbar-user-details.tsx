@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React from "react";
+import React from 'react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,15 +8,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@components/ui/dropdown-menu/dropdown-menu";
-import { SessionUser } from "typedefs/app.types";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@components/ui/avatar/avatar";
-import { LogoutIcon } from "@components/ui/icons/logout-icon";
-import { signOut } from "next-auth/react";
+} from '@components/ui/dropdown-menu/dropdown-menu';
+import { SessionUser } from 'typedefs/app.types';
+import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar/avatar';
+import { LogoutIcon } from '@components/ui/icons/logout-icon';
+import { signOut } from 'next-auth/react';
 
 type NavbarUserDetailsProps = {
   user: SessionUser;

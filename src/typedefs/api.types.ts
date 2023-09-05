@@ -1,4 +1,4 @@
-import { SafeRegistry } from "./app.types";
+import { SafeRegistry } from './app.types';
 
 export type ApiResponse = {
   error?: string;

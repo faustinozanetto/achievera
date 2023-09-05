@@ -1,7 +1,7 @@
-import React from "react";
-import { ActionMap } from "./app.types";
+import React from 'react';
+import { ActionMap } from './app.types';
 
-export type ToastVariant = "success" | "danger" | "info";
+export type ToastVariant = 'success' | 'danger' | 'info';
 
 export type Toast = {
   content: string;
@@ -29,10 +29,9 @@ type ToastPayload = {
     toast: Toast;
   };
   [ToastActionType.REMOVE_TOAST]: {
-    toast: Toast["id"];
+    toast: Toast['id'];
   };
   [ToastActionType.REMOVE_ALL_TOASTS]: {};
 };
 
-export type ToastActions =
-  ActionMap<ToastPayload>[keyof ActionMap<ToastPayload>];
+export type ToastActions = ActionMap<ToastPayload>[keyof ActionMap<ToastPayload>];

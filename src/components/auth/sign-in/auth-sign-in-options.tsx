@@ -1,11 +1,11 @@
-import React from "react";
-import AuthSignInOption, { AuthSignInOptionProps } from "./auth-sign-in-option";
-import { GithubIcon } from "@components/ui/icons/github-icon";
+import React from 'react';
+import { GithubIcon } from '@components/ui/icons/github-icon';
+import AuthSignInOption, { AuthSignInOptionProps } from './auth-sign-in-option';
 
 const AUTH_OPTIONS: AuthSignInOptionProps[] = [
   {
     icon: <GithubIcon className="mr-2" />,
-    option: "github",
+    option: 'github',
   },
 ];
 
