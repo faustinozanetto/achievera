@@ -6,8 +6,8 @@ export type SafeRegistry = Pick<DailyRegistry, 'content' | 'createdAt' | 'id'>;
 
 export type RegistriesState = {
   currentPage: number;
-  isLoading: boolean;
   hasMore: boolean;
+  isLoading: boolean;
   registries: SafeRegistry[];
 };
 
