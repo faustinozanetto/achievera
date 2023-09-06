@@ -18,7 +18,7 @@ const RegistriesFeed: React.FC = () => {
   const combinedRegistries = useMemo(() => {
     if (!data || !data.registries) return [];
 
-    const combined: { [date: string]: SafeRegistry[] } = data.registries.reduce((acc, curr) => {
+    const combined: Record<string, SafeRegistry[]> = data.registries.reduce((acc, curr) => {
       const date = new Date(curr.createdAt).toISOString().split('T')[0];
       if (!acc[date]) {
         acc[date] = [];
@@ -27,7 +27,13 @@ const RegistriesFeed: React.FC = () => {
       return acc;
     }, {});
 
-    return Object.entries(combined);
+    // If combined registries do not contain todays date, it means the user did not create a goal for today so we add a empty array at the date.
+    const date = new Date().toISOString().split('T')[0];
+    if (!combined[date]) {
+      combined[date] = [];
+    }
+
+    return Object.entries(combined).sort((a, b) => new Date(b[0]).getTime() - new Date(a[0]).getTime());
   }, [data]);
 
   return (
