@@ -10,7 +10,7 @@ import { useToastContext } from './use-toast-context';
 export const useToast = () => {
   const { dispatch } = useToastContext();
 
-  const toast = (toast: Omit<Toast, 'id'>, duration: number = 3000) => {
+  const toast = (toast: Omit<Toast, 'id'>, duration: number = 80000) => {
     const toastId = Math.random().toString(12).substring(2, 10);
 
     dispatch({

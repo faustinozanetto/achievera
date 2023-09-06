@@ -31,9 +31,9 @@ const RegistriesCreate: React.FC = () => {
       <AccordionItem className="border-b-0" value="item-1">
         <AccordionTrigger className="font-semibold text-lg">Set Your Goal or Achievement</AccordionTrigger>
         <AccordionContent>
-          <p>Use the form below to set your goal or achievement with Achievera.</p>
           <p className="mb-2">
-            <span className="font-bold">Tip:</span> You can use emojis to add a fun touch to your goal or achievement!
+            <span className="font-bold text-primary">Tip:</span> You can use emojis to add a fun touch to your goal or
+            achievement!
           </p>
           <RegistriesCreateForm onSubmit={handleRegistrySubmit} />
         </AccordionContent>

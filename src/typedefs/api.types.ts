@@ -1,4 +1,4 @@
-import { SafeRegistry } from './app.types';
+import { SafeRegistry } from './registries.types';
 
 export type ApiResponse = {
   error?: string;
@@ -9,5 +9,6 @@ export type CreateRegistryApiResponse = ApiResponse & {
 };
 
 export type GetRegistriesApiResponse = ApiResponse & {
+  hasMore: boolean;
   registries: SafeRegistry[];
 };

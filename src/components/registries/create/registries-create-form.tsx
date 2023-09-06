@@ -30,9 +30,6 @@ const RegistriesCreateForm: React.FC<RegistriesCreateFormProps> = (props) => {
   const form = useForm<RegistriesCreateFormData>({
     // @ts-ignore
     resolver: zodResolver(registriesCreateValidationSchema),
-    defaultValues: {
-      content: '',
-    },
   });
 
   return (

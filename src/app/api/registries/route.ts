@@ -2,18 +2,23 @@ import prisma from '@lib/database.lib';
 import { authOptions } from '@lib/auth.lib';
 import { registriesCreateValidationSchema } from '@lib/validations.lib';
 import { CreateRegistryApiResponse, GetRegistriesApiResponse } from '@typedefs/api.types';
-import { SafeRegistry } from '@typedefs/app.types';
 import { getServerSession } from 'next-auth';
 import { NextResponse } from 'next/server';
+import { SafeRegistry } from '@typedefs/registries.types';
 
-export const GET = async () => {
+export const GET = async (request: Request) => {
   try {
+    const url = new URL(request.url);
+    const take = Number(url.searchParams.get('take')) ?? 4;
+    const skip = Number(url.searchParams.get('skip')) ?? 0;
+
     const session = await getServerSession(authOptions);
 
     if (!session || !session.user) {
-      const data: CreateRegistryApiResponse = {
+      const data: GetRegistriesApiResponse = {
         error: 'Unauthorized',
-        success: false,
+        hasMore: false,
+        registries: [],
       };
 
       return NextResponse.json(data, { status: 403 });
@@ -24,18 +29,30 @@ export const GET = async () => {
       select: {
         registries: {
           orderBy: { createdAt: 'desc' },
+          take: take + 1, // Fetch one more to check if there are more
+          skip,
         },
       },
     })) ?? { registries: [] };
 
+    // Check if there are more registries beyond what's fetched
+    const hasMore = registries.registries.length > take;
+
+    // If there are more, remove the extra registry used for checking
+    if (hasMore) {
+      registries.registries.pop();
+    }
+
     // Map registries so that we only return content and date.
     const mappedRegistries: SafeRegistry[] = registries.registries.map((registry) => ({
+      id: registry.id,
       content: registry.content,
       createdAt: registry.createdAt,
     }));
 
     const data: GetRegistriesApiResponse = {
       registries: mappedRegistries,
+      hasMore,
     };
 
     return NextResponse.json(data);

@@ -8,7 +8,7 @@ import { cn } from '@lib/common.lib';
 import { useToastContext } from '@hooks/toasts/use-toast-context';
 import { Toast } from './toast';
 
-export const toastContainerVariants = cva('pointer-events-none fixed z-[999] flex flex-col', {
+export const toastContainerVariants = cva('pointer-events-none fixed z-[999] flex flex-col w-full sm:w-auto', {
   variants: {
     position: {
       'top-left': 'top-0 left-0',
