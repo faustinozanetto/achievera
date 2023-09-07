@@ -8,6 +8,10 @@ export type CreateRegistryApiResponse = ApiResponse & {
   success: boolean;
 };
 
+export type DeleteAccountApiResponse = ApiResponse & {
+  success: boolean;
+};
+
 export type GetRegistriesApiResponse = ApiResponse & {
   hasMore: boolean;
   registries: SafeRegistry[];

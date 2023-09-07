@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { SafeRegistry } from '@typedefs/registries.types';
 import { Badge } from '@components/ui/badge/badge';
 import { datesAreEqual } from '@lib/common.lib';
-import { motion } from 'framer-motion';
+import { Separator } from '@components/ui/separator/separator';
 import RegistriesFeedEntryContent from './registries-feed-entry-content';
 
 type RegistriesFeedEntryProps = {
@@ -21,15 +21,8 @@ const RegistriesFeedEntry: React.FC<RegistriesFeedEntryProps> = memo((props) => 
   const isEntryToday = datesAreEqual(entryDate, todayDate);
 
   return (
-    <motion.div
-      className="bg-background-alternate p-4 shadow-lg rounded-lg border"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        duration: 0.25,
-      }}
-    >
-      <div className="flex justify-between items-center mb-2">
+    <div className="bg-background-alternate p-4 shadow-lg rounded-lg border flex flex-col">
+      <div className="flex justify-between items-center">
         <h3 className="font-bold sm:text-lg">
           {entryDate.toLocaleDateString('en-US', {
             day: 'numeric',
@@ -39,6 +32,7 @@ const RegistriesFeedEntry: React.FC<RegistriesFeedEntryProps> = memo((props) => 
         </h3>
         {isEntryToday && <Badge>Today</Badge>}
       </div>
+      <Separator className="my-2" />
       {content.length > 0 ? (
         <ul className="flex flex-col gap-1 list-decimal list-inside">
           {content.map((entry) => {
@@ -50,7 +44,7 @@ const RegistriesFeedEntry: React.FC<RegistriesFeedEntryProps> = memo((props) => 
       ) : (
         <p className="font-medium text-sm sm:text-base">No content registered for this day!</p>
       )}
-    </motion.div>
+    </div>
   );
 });
 

@@ -4,6 +4,7 @@ import React, { useMemo } from 'react';
 
 import { SafeRegistry } from '@typedefs/registries.types';
 import { useRegistries } from '@hooks/registries/use-registries';
+import { motion } from 'framer-motion';
 import RegistriesFeedEntry from './registries-feed-entry';
 import RegistriesFeedEntryPlaceholder from './registries-feed-entry-placeholder';
 import RegistriesFeedLoadMore from './registries-feed-load-more';
@@ -64,8 +65,20 @@ const RegistriesFeed: React.FC = () => {
         {/* Registries feed */}
         {!isLoading &&
           combinedRegistries.length > 0 &&
-          combinedRegistries.map((registry) => {
-            return <RegistriesFeedEntry key={`registry-${registry[0]}`} date={registry[0]} content={registry[1]} />;
+          combinedRegistries.map((registry, index) => {
+            return (
+              <motion.div
+                key={`registry-${registry[0]}`}
+                initial={{ opacity: 0, translateY: -15 }}
+                animate={{ opacity: 1, translateY: 0 }}
+                transition={{
+                  duration: 0.25,
+                  delay: index * 0.2,
+                }}
+              >
+                <RegistriesFeedEntry date={registry[0]} content={registry[1]} />
+              </motion.div>
+            );
           })}
 
         {!isLoading && hasMore && <RegistriesFeedLoadMore handleLoadMore={loadMore} />}
