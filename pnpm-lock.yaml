@@ -80,8 +80,8 @@ dependencies:
 
 devDependencies:
   '@commitlint/cli':
-    specifier: ^17.4.2
-    version: 17.4.2
+    specifier: ^17.7.1
+    version: 17.7.1
   '@commitlint/config-conventional':
     specifier: ^17.4.2
     version: 17.4.2
@@ -207,8 +207,8 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
 
-  /@commitlint/cli@17.4.2:
-    resolution: {integrity: sha512-0rPGJ2O1owhpxMIXL9YJ2CgPkdrFLKZElIZHXDN8L8+qWK1DGH7Q7IelBT1pchXTYTuDlqkOTdh//aTvT3bSUA==}
+  /@commitlint/cli@17.7.1:
+    resolution: {integrity: sha512-BCm/AT06SNCQtvFv921iNhudOHuY16LswT0R3OeolVGLk8oP+Rk9TfQfgjH7QPMjhvp76bNqGFEcpKojxUNW1g==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
