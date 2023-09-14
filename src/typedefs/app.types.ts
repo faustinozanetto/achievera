@@ -1,3 +1,6 @@
+import { BuiltInProviderType } from 'next-auth/providers';
+import { LiteralUnion } from 'next-auth/react';
+
 export type ActionMap<M extends { [index: string]: unknown }> = {
   [Key in keyof M]: M[Key] extends undefined
     ? {
@@ -15,4 +18,4 @@ export type SessionUser = {
   name: string;
 };
 
-export type AuthOption = 'github';
+export type AuthOption = LiteralUnion<BuiltInProviderType>;
