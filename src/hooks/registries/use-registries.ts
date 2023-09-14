@@ -2,17 +2,17 @@ import axios from 'axios';
 import { RegistriesActionType } from '@typedefs/registries.types';
 import { useToast } from '@hooks/toasts/use-toast';
 import { GetRegistriesApiResponse } from '@typedefs/api.types';
-import { useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { useRegistriesContext } from './use-registries-context';
 
 export const useRegistries = (take: number = 4) => {
   const toast = useToast();
+
   const { state, dispatch } = useRegistriesContext();
 
-  const fetch = async () => {
-    try {
-      dispatch({ type: RegistriesActionType.SET_IS_LOADING, payload: { isLoading: true } });
-
+  const { data, isLoading } = useQuery<GetRegistriesApiResponse, Error>({
+    queryKey: ['registries', state.currentPage],
+    queryFn: async () => {
       const url = new URL('/api/registries', process.env.NEXT_PUBLIC_URL);
 
       const pagination = {
@@ -23,27 +23,29 @@ export const useRegistries = (take: number = 4) => {
       url.searchParams.append('take', String(pagination.take));
       url.searchParams.append('skip', String(pagination.skip));
 
-      const { data } = await axios.get<GetRegistriesApiResponse>(url.toString());
+      const response = await axios.get<GetRegistriesApiResponse>(url.toString());
+      return response.data;
+    },
+    keepPreviousData: true,
 
-      dispatch({ type: RegistriesActionType.ADD_REGISTRIES, payload: { registries: data.registries } });
-      dispatch({ type: RegistriesActionType.SET_HAS_MORE, payload: { hasMore: data.hasMore } });
-    } catch (err) {
-      toast({ variant: 'danger', content: 'An error occurred!' });
-    } finally {
-      dispatch({ type: RegistriesActionType.SET_IS_LOADING, payload: { isLoading: false } });
-    }
-  };
+    onError: (err) => {
+      toast({ variant: 'danger', content: err.message });
+    },
+  });
 
-  const loadMore = () => {
+  const increasePage = () => {
     dispatch({ type: RegistriesActionType.INCREASE_PAGE, payload: {} });
   };
 
-  useEffect(() => {
-    fetch();
-  }, [state.currentPage]);
+  const decreasePage = () => {
+    dispatch({ type: RegistriesActionType.DECREASE_PAGE, payload: {} });
+  };
 
   return {
-    loadMore,
-    ...state,
+    increasePage,
+    decreasePage,
+    registries: data?.registries,
+    hasMore: data?.hasMore,
+    isLoading,
   };
 };

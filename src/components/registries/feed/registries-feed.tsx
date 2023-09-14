@@ -10,13 +10,13 @@ import RegistriesFeedEntryPlaceholder from './registries-feed-entry-placeholder'
 import RegistriesFeedLoadMore from './registries-feed-load-more';
 
 const RegistriesFeed: React.FC = () => {
-  const { registries, hasMore, isLoading, loadMore } = useRegistries();
+  const { registries, hasMore, isLoading, increasePage } = useRegistries();
 
   /**
    * This useMemo hook combines and groups registry data by date.
    */
   const combinedRegistries = useMemo(() => {
-    if (registries.length === 0) return [];
+    if (registries === undefined) return [];
 
     const combined: Record<string, SafeRegistry[]> = registries.reduce((acc, curr) => {
       const date = new Date(curr.createdAt).toISOString().split('T')[0];
@@ -81,7 +81,7 @@ const RegistriesFeed: React.FC = () => {
             );
           })}
 
-        {!isLoading && hasMore && <RegistriesFeedLoadMore handleLoadMore={loadMore} />}
+        {!isLoading && hasMore && <RegistriesFeedLoadMore handleLoadMore={increasePage} />}
       </div>
     </div>
   );
