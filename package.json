@@ -91,7 +91,7 @@
     "eslint-plugin-typescript-sort-keys": "3.0.0",
     "eslint-plugin-unused-imports": "^3.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^15.1.0",
     "postcss": "^8.4.21",
     "prettier": "^3.0.0",
     "prisma": "5.2.0",
